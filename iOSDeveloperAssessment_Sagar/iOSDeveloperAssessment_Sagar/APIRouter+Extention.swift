@@ -10,8 +10,9 @@ import Foundation
 extension APIRouter {
     var parameters: [String : Any]? {
         switch self {
-        case .searchUser:
+        case .searchUser,.userDetails:
             return nil
+        
         }
     }
 }
@@ -19,7 +20,7 @@ extension APIRouter {
 extension APIRouter {
     var methodType: HTTPMethod {
         switch self {
-        case .searchUser:
+        case .searchUser,.userDetails:
             return .get
         
         }

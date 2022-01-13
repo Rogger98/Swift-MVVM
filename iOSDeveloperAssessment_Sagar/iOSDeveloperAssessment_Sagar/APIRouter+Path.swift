@@ -12,7 +12,8 @@ extension APIRouter {
         switch self {
         case .searchUser(let user,let page):
             return "https://api.github.com/search/users?q=\(user)&page=\(page)"
-        
+        case .userDetails(let userName):
+            return "https://api.github.com/users/\(userName)"
         }
     }
 }

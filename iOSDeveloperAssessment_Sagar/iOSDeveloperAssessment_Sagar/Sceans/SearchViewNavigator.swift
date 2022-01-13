@@ -10,6 +10,7 @@ import UIKit
 enum SearchNavigator {
     case moveToFollowing(user: Item)
     case moveToFollowers(user: Item)
+    case moveToProfile(user: Item)
 }
 
 class SearchViewNavigator {
@@ -21,13 +22,28 @@ class SearchViewNavigator {
     func moveTo(navigator: SearchNavigator) {
         switch navigator {
         case .moveToFollowing(let user):
-            let followController = UIStoryboard.followDetailsStoryboard.followingsViewController
-            followController.user = user
-            controller.navigationController?.pushViewController(followController, animated: true)
+            guard let preController = controller.navigationController?.viewControllers.first(where: {$0.isKind(of: FollowingViewController.self)}) as? FollowingViewController else {
+                let followController = UIStoryboard.followDetailsStoryboard.getViewController(FollowingViewController.self)
+                followController.user = user
+                controller.navigationController?.pushViewController(followController, animated: true)
+                return
+            }
+            preController.user = user
+            controller.navigationController?.pushViewController(preController, animated: true)
         case .moveToFollowers(let user):
-            let followController = UIStoryboard.followDetailsStoryboard.followersViewController
-            followController.user = user
-            controller.navigationController?.pushViewController(followController, animated: true)
+            
+            guard let preController = controller.navigationController?.viewControllers.first(where: {$0.isKind(of: FollowersViewController.self)}) as? FollowingViewController else {
+                let followController = UIStoryboard.followDetailsStoryboard.getViewController(FollowersViewController.self)
+                followController.user = user
+                controller.navigationController?.pushViewController(followController, animated: true)
+                return
+            }
+            preController.user = user
+            controller.navigationController?.pushViewController(preController, animated: true)
+        case .moveToProfile(let user):
+            let profileVc = UIStoryboard.profileStoryboard.getViewController(ProfileViewController.self)
+            profileVc.user = user
+            controller.navigationController?.pushViewController(profileVc, animated: true)
         }
     }
 }

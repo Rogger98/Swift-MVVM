@@ -12,13 +12,13 @@ extension UIStoryboard {
     static var followDetailsStoryboard: UIStoryboard {
         return UIStoryboard(name: "FollowDetails", bundle: nil)
     }
-    var followingsViewController : FollowingViewController {
-        let vcId = String(describing: FollowingViewController.self)
-        return (instantiateViewController(withIdentifier: vcId) as? FollowingViewController)!
+    static var profileStoryboard: UIStoryboard {
+        return UIStoryboard(name: "Profile", bundle: nil)
     }
-    var followersViewController : FollowersViewController {
-        let vcId = String(describing: FollowersViewController.self)
-        return (instantiateViewController(withIdentifier: vcId) as? FollowersViewController)!
+    
+    func getViewController<T:UIViewController>(_ type: T.Type) -> T {
+        let vcId = String(describing: type.self)
+        return (instantiateViewController(withIdentifier: vcId) as? T)!
     }
 }
 

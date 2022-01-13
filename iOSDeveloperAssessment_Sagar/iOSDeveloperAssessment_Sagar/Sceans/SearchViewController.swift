@@ -28,9 +28,12 @@ class SearchViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        navigationController?.navigationBar.isHidden = true
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
     private func setupBindings() {
         
         navigator = SearchViewNavigator.init(self)
@@ -74,6 +77,9 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if !showSkeleton {
+            navigator?.moveTo(navigator: .moveToProfile(user: viewModel.arraySearchUsers[indexPath.row]))
+        }
         
     }
 }

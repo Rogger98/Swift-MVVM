@@ -24,6 +24,7 @@ protocol Router {
 
 enum APIRouter: Router {
     case searchUser(userName: String,page: Int)
+    case userDetails(userName: String)
 }
 
 

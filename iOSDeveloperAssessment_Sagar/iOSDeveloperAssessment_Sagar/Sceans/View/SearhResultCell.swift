@@ -50,6 +50,7 @@ class SearhResultCell: UITableViewCell {
 
             }
             if !(buttonFollowering?.isSelected ?? false){
+                
                 if let flwUrl = userDetails?.followingURL?.stringValue, !flwUrl.isEmpty {
                     let url = "https://api.github.com/users/" + (userDetails?.login?.stringValue ?? "") + "/following"
                     WebServices.shared.getAPICall(path: url, type: [Item].self) { (data) in
