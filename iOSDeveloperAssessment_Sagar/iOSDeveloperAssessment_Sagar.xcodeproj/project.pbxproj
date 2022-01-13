@@ -142,9 +142,8 @@
 		6E9C6CB9279009F800B0A7F0 /* Sceans */ = {
 			isa = PBXGroup;
 			children = (
+				6E9CFD662790AD15009F28F6 /* FollowDetails */,
 				6E9C6D1D2790675C00B0A7F0 /* Profile */,
-				6E9C6D14279053FC00B0A7F0 /* Followers */,
-				6E9C6D022790415700B0A7F0 /* Followings */,
 				6E9C6CCE2790123600B0A7F0 /* Search */,
 			);
 			path = Sceans;
@@ -244,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				6E9C6D032790417000B0A7F0 /* FollowingViewController.swift */,
-				6E9C6D0A279041E200B0A7F0 /* FollowDetailsViewModel.swift */,
 			);
 			path = Followings;
 			sourceTree = "<group>";
@@ -253,7 +251,6 @@
 			isa = PBXGroup;
 			children = (
 				6E9C6D152790541800B0A7F0 /* FollowersViewController.swift */,
-				6EF3B1AB2790713B000BC3D9 /* FollowDetailsViewNavigator.swift */,
 			);
 			path = Followers;
 			sourceTree = "<group>";
@@ -266,6 +263,17 @@
 				6EF3B1A827906DF4000BC3D9 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		6E9CFD662790AD15009F28F6 /* FollowDetails */ = {
+			isa = PBXGroup;
+			children = (
+				6E9C6D0A279041E200B0A7F0 /* FollowDetailsViewModel.swift */,
+				6E9C6D022790415700B0A7F0 /* Followings */,
+				6E9C6D14279053FC00B0A7F0 /* Followers */,
+				6EF3B1AB2790713B000BC3D9 /* FollowDetailsViewNavigator.swift */,
+			);
+			path = FollowDetails;
 			sourceTree = "<group>";
 		};
 		6EF3B1AE279080C9000BC3D9 /* Models */ = {

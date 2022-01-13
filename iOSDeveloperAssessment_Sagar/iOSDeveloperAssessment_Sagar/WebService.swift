@@ -54,9 +54,8 @@ class WebServices {
         var request = URLRequest(url: URL(string: path)!)
         request.httpMethod = "GET"
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if error == nil, let statusCode = response as? HTTPURLResponse {
+            if error == nil {
                 if let responseData = data {
-                    if statusCode.statusCode == 200 {
                         do {
                             if let responseda = try? JSONSerialization.jsonObject(with: responseData, options: .allowFragments) {
                                 print(" ✅ Response \(responseda)")
@@ -71,7 +70,6 @@ class WebServices {
                                 failuer(error.localizedDescription,nil)
                             }
                         }
-                    }
                 }
             } else {
                 let message = error?.localizedDescription ?? ""

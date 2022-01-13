@@ -21,6 +21,7 @@ class FollowingViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        prepareUI()
         setupBindings()
     }
     
@@ -39,7 +40,9 @@ class FollowingViewController: BaseViewController {
             self.showAPIError(message: networkError, responseError: responseError)
         }
     }
-
+    private func prepareUI() {
+        title = "Following"
+    }
 }
 extension FollowingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

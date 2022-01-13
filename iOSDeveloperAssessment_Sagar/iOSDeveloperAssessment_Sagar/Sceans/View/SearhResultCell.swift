@@ -22,10 +22,14 @@ class SearhResultCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        userImageView?.showGradientSkeleton()
-        buttonFollowers?.showGradientSkeleton()
-        buttonFollowering?.showGradientSkeleton()
-        labelUserName?.showGradientSkeleton()
+        
+        [userImageView,
+        buttonFollowering,
+        labelUserName].forEach { (sView) in
+            sView?.showGradientSkeleton()
+        }
+                
+        
     
     }
 

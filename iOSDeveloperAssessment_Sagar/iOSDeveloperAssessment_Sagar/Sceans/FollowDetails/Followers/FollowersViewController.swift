@@ -20,6 +20,7 @@ class FollowersViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        prepareUI()
         setupBindings()
     }
     
@@ -38,7 +39,9 @@ class FollowersViewController: BaseViewController {
             self.showAPIError(message: networkError, responseError: responseError)
         }
     }
-    
+    private func prepareUI() {
+        title = "Followers"
+    }
 
 }
 extension FollowersViewController: UITableViewDataSource {
