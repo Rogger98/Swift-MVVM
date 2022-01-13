@@ -25,6 +25,7 @@ class SearhResultCell: UITableViewCell {
         
         [userImageView,
         buttonFollowering,
+        buttonFollowers,
         labelUserName].forEach { (sView) in
             sView?.showGradientSkeleton()
         }

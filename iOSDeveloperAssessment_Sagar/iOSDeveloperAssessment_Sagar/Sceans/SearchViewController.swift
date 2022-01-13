@@ -61,7 +61,7 @@ class SearchViewController: BaseViewController {
         }
     }
     private func prepareUI() {
-        viewModel.searchForUser("jinuman")
+        //viewModel.searchForUser("jinuman")
         textFieldSearch.clearButtonMode = .whileEditing
         tableSearchResult.keyboardDismissMode = .onDrag
         textFieldSearch.inputAccessoryView = toolBar

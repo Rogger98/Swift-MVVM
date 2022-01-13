@@ -14,7 +14,32 @@ enum FollowDetailsNavigator {
     case moveToProfile(user: Item)
 }
 
-class FollowersViewNavigator {
+class FollowViewingNavigator {
+    
+    let controller: FollowingViewController
+    init(_ viewController: FollowingViewController) {
+        controller = viewController
+    }
+    func moveTo(navigator: SearchNavigator) {
+        switch navigator {
+        case .moveToFollowing(let user):
+            let followController = UIStoryboard.followDetailsStoryboard.getViewController(FollowingViewController.self)
+            followController.user = user
+            controller.navigationController?.pushViewController(followController, animated: true)
+        case .moveToFollowers(let user):
+            let followController = UIStoryboard.followDetailsStoryboard.getViewController(FollowersViewController.self)
+            followController.user = user
+            controller.navigationController?.pushViewController(followController, animated: true)
+        case .moveToProfile(let user):
+            let profileVc = UIStoryboard.profileStoryboard.getViewController(ProfileViewController.self)
+            profileVc.user = user
+            controller.navigationController?.pushViewController(profileVc, animated: true)
+            
+        }
+    }
+}
+
+class FollowViewersNavigator {
     
     let controller: FollowersViewController
     init(_ viewController: FollowersViewController) {

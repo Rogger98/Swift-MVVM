@@ -21,6 +21,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="hD2-tU-j4I" id="Ueg-hs-Yid"/>
+                                    <outlet property="delegate" destination="hD2-tU-j4I" id="lXp-9I-I1J"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -39,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fdf-jL-poj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="50.724637681159422" y="150"/>
+            <point key="canvasLocation" x="3" y="143"/>
         </scene>
         <!--Followers View Controller-->
         <scene sceneID="NWg-9B-zYC">
@@ -54,6 +55,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Q4m-MB-eNb" id="Hkz-Jd-4hk"/>
+                                    <outlet property="delegate" destination="Q4m-MB-eNb" id="tCn-O4-h0f"/>
                                 </connections>
                             </tableView>
                         </subviews>
