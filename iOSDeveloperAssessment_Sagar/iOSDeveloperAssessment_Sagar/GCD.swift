@@ -14,4 +14,9 @@ class GCD {
             complition()
         }
     }
+    static func onMain(deadline: DispatchTime,complition: @escaping() -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            complition()
+        }
+    }
 }

@@ -78,10 +78,18 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aR8-eJ-Hgq">
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="40"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GwJ-YD-7Dd">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GwJ-YD-7Dd" customClass="SPTextField" customModule="iOSDeveloperAssessment_Sagar" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="354" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="didSearchTextWithSender:" destination="BYZ-38-t0r" eventType="editingChanged" id="Sv6-s5-w0T"/>
                                                         </connections>
@@ -154,6 +162,11 @@
             <point key="canvasLocation" x="-146.37681159420291" y="69.642857142857139"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="GwJ-YD-7Dd">
+            <size key="intrinsicContentSize" width="53" height="18.5"/>
+        </designable>
+    </designables>
     <resources>
         <image name="backArrow" width="23" height="23"/>
         <image name="githLogo" width="240" height="240"/>

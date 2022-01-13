@@ -10,7 +10,7 @@ import SkeletonView
 
 class SearhResultCell: UITableViewCell {
 
-    @IBOutlet private weak var labelUserName: UILabel!
+    @IBOutlet private weak var labelUserName: UILabel?
     @IBOutlet private weak var userImageView: UIImageView?
     @IBOutlet private weak var buttonFollowers: UIButton?
     @IBOutlet private weak var buttonFollowering: UIButton?
@@ -22,6 +22,10 @@ class SearhResultCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        userImageView?.showGradientSkeleton()
+        buttonFollowers?.showGradientSkeleton()
+        buttonFollowering?.showGradientSkeleton()
+        labelUserName?.showGradientSkeleton()
     
     }
 
@@ -62,22 +66,28 @@ class SearhResultCell: UITableViewCell {
                 }
 
             }
-                        
+            hideSkeletons()
         }
     }
     func setCountForFollowers(count: Int) {
         GCD.onMain {
             self.buttonFollowers?.isSelected = true
             self.buttonFollowers?.setTitle("\(count) Followers", for: .selected)
+            self.buttonFollowers?.hideSkeleton()
         }
     }
     func setCountForFollowerings(count: Int) {
         GCD.onMain {
             self.buttonFollowering?.isSelected = true
             self.buttonFollowering?.setTitle("\(count) Following", for: .selected)
+            self.buttonFollowering?.hideSkeleton()
         }
     }
-
+    func hideSkeletons() {
+        [userImageView,labelUserName].forEach { (sView) in
+            sView?.hideSkeleton()
+        }
+    }
 }
 // MARK: - Action Methods
 extension SearhResultCell {

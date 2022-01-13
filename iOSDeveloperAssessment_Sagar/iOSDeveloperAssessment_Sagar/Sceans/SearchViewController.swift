@@ -8,7 +8,7 @@
 import UIKit
 import SkeletonView
 
-class SearchViewController: UIViewController {
+class SearchViewController: BaseViewController {
 
     // MARK: - Outlets
     @IBOutlet private weak var tableSearchResult: UITableView!
@@ -35,18 +35,27 @@ class SearchViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
     }
     private func setupBindings() {
-        
-        navigator = SearchViewNavigator.init(self)
+        let refreshController = UIRefreshControl()
+        refreshController.addTarget(self, action: #selector(refreshUsers), for: .valueChanged)
+        tableSearchResult.refreshControl = refreshController
+        navigator = SearchViewNavigator(self)
         viewModel.searchResultUpdated = { [weak self] in
             guard let `self` = self else { return  }
             GCD.onMain {
                 self.showSkeleton = false
                 self.tableSearchResult.reloadData()
                 self.viewNotFound.isHidden = !self.viewModel.arraySearchUsers.isEmpty
+                self.tableSearchResult.refreshControl?.endRefreshing()
             }
         }
+        self.textFieldSearch.text = "jinuman"
+        viewModel.searchForUser("jinuman")
     }
-    
+    @objc func refreshUsers() {
+        viewModel.page = 1
+        viewModel.isInCompleteResult = false
+        viewModel.searchForUser(textFieldSearch.text ?? "")
+    }
     // MARK: - Action Methods
     @IBAction private func didSearchText(sender: UITextField) {
         if let search = sender.text , !search.isEmpty {
@@ -70,8 +79,6 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
                 guard let `self` = self else { return  }
                 self.navigator?.moveTo(navigator: .moveToFollowers(user: user))
             }
-        } else {
-            cell.showAnimatedGradientSkeleton()
         }
         
         return cell
