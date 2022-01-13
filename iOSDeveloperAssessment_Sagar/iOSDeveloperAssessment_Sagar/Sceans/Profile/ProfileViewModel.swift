@@ -7,14 +7,17 @@
 
 import Foundation
 
-class ProfileViewModel {
+class ProfileViewModel:BaseViewModel{
     
  
+    
+    
     func getUserDetails(user: String,complition: @escaping(_ user: UserDetails) -> Void) {
         WebServices.shared.makeRequest(route: .userDetails(userName: user), type: UserDetails.self) { (userAllDetails) in
             complition(userAllDetails)
         } failuer: { (message, responseMessage) in
             
+            self.apiErrorMessage?(message,responseMessage)
         }
 
     }

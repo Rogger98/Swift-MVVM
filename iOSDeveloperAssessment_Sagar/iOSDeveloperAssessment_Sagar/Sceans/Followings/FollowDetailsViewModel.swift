@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FollowDetailsViewModel {
+class FollowDetailsViewModel: BaseViewModel {
     
     
     var arrayFollows:[Item] = [Item]()
@@ -19,7 +19,7 @@ class FollowDetailsViewModel {
             self.arrayFollows.append(contentsOf: data)
             self.didReceivedFollowDetails?()
         } failuer: { (error, responseError) in
-            print("Error Getting Followers")
+            self.apiErrorMessage?(error,responseError)
         }
 
     }

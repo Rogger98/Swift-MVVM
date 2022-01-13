@@ -8,7 +8,7 @@
 import Foundation
 
 
-class SearchViewModel {
+class SearchViewModel : BaseViewModel{
     
     var page: Int = 1
     var totalPage = 0
@@ -33,7 +33,7 @@ class SearchViewModel {
             self.arraySearchUsers.append(contentsOf: data.items ?? [])
             self.searchResultUpdated?()
         } failuer: { (message, responseError) in
-            print("Error API CALL")
+            self.apiErrorMessage?(message,responseError)
         }
     }
 }

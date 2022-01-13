@@ -7,6 +7,7 @@
 
 import UIKit
 import SkeletonView
+import UIScrollView_InfiniteScroll
 
 class SearchViewController: BaseViewController {
 
@@ -18,13 +19,14 @@ class SearchViewController: BaseViewController {
     // MARK: - Variables
     var viewModel: SearchViewModel = SearchViewModel()
     var navigator: SearchViewNavigator?
-    var showSkeleton: Bool = true
+    var showSkeleton: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        setupBindings()
+        prepareUI()
+        setupBindings()        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,9 +37,6 @@ class SearchViewController: BaseViewController {
         navigationController?.navigationBar.isHidden = false
     }
     private func setupBindings() {
-        let refreshController = UIRefreshControl()
-        refreshController.addTarget(self, action: #selector(refreshUsers), for: .valueChanged)
-        tableSearchResult.refreshControl = refreshController
         navigator = SearchViewNavigator(self)
         viewModel.searchResultUpdated = { [weak self] in
             guard let `self` = self else { return  }
@@ -46,19 +45,58 @@ class SearchViewController: BaseViewController {
                 self.tableSearchResult.reloadData()
                 self.viewNotFound.isHidden = !self.viewModel.arraySearchUsers.isEmpty
                 self.tableSearchResult.refreshControl?.endRefreshing()
+                self.reloadEmptyView()
             }
         }
-        self.textFieldSearch.text = "jinuman"
-        viewModel.searchForUser("jinuman")
+        tableSearchResult.addInfiniteScroll { (table) in
+            if !self.viewModel.isInCompleteResult && self.viewModel.arraySearchUsers.count != self.viewModel.totalPage{
+                self.viewModel.page += 1
+                self.viewModel.searchForUser(self.textFieldSearch.text ?? "")
+            }
+        }
+        viewModel.apiErrorMessage = { (networkError,responseError)  in
+            self.showAPIError(message: networkError, responseError: responseError)
+        }
+    }
+    private func prepareUI() {
+        self.reloadEmptyView()
+        let refreshController = UIRefreshControl()
+        refreshController.addTarget(self, action: #selector(refreshUsers), for: .valueChanged)
+        tableSearchResult.refreshControl = refreshController
     }
     @objc func refreshUsers() {
         viewModel.page = 1
         viewModel.isInCompleteResult = false
         viewModel.searchForUser(textFieldSearch.text ?? "")
     }
-    // MARK: - Action Methods
-    @IBAction private func didSearchText(sender: UITextField) {
+    func loadingApiResult() {
+        viewNotFound.isHidden = true
+        self.viewModel.page = 1
+        self.showSkeleton = true
+        tableSearchResult.reloadData()
+    }
+    func reloadEmptyView() {
+        let message = self.viewModel.arraySearchUsers.isEmpty && (textFieldSearch.text ?? "").isEmpty ? "Welcome to the assesment app." : "Not Found"
+        labelEmpty.text = message
+        viewNotFound.isHidden = !viewModel.arraySearchUsers.isEmpty
+    }
+}
+
+// MARK: - Action Methods
+extension SearchViewController {
+    
+    @IBAction private func didSearchText(sender: UITextField) {        
         if let search = sender.text , !search.isEmpty {
+            loadingApiResult()
+            viewModel.searchForUser(search)
+        } else {
+            viewModel.arraySearchUsers.removeAll()
+            reloadEmptyView()
+            tableSearchResult.reloadData()
+        }
+    }
+    @IBAction private func didTapOnSearch() {
+        if let search = textFieldSearch.text , !search.isEmpty {
             viewModel.searchForUser(search)
         }
     }

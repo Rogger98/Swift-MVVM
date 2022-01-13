@@ -32,6 +32,7 @@ class FollowersViewNavigator {
             controller.navigationController?.pushViewController(followController, animated: true)
         case .moveToProfile(let user):
             let profileVc = UIStoryboard.profileStoryboard.getViewController(ProfileViewController.self)
+            profileVc.user = user
             controller.navigationController?.pushViewController(profileVc, animated: true)
             
         }

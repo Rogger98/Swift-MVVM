@@ -13,12 +13,12 @@ class WebServices {
     static var shared: WebServices = WebServices()
     
     
-    func makeRequest<T: Codable>(route: APIRouter,type: T.Type,success: @escaping(_ result: T) -> Void,failuer: @escaping(_ networkError: String?,_ responseError: ResponseError?) -> Void) {
+    func makeRequest<T: Codable>(route: APIRouter,type: T.Type,success: @escaping(_ result: T) -> Void,failuer: @escaping(_ networkError: String?,_ responseError: ResponseErrorDetails?) -> Void) {
         let path = route.path
         var request = URLRequest(url: URL(string: path)!)
         request.httpMethod = route.methodType.rawValue
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if error == nil, let statusCode = response as? HTTPURLResponse {
+            if error == nil{
                 if let responseData = data {
                     
                     do {
@@ -29,7 +29,12 @@ class WebServices {
                         success(json)
                     }catch {
                         print("Error Decode")
-                        failuer(nil,ResponseError(rawValue: 111))
+                        print("Error Decode")
+                        if let errorDetails = try? JSONDecoder().decode(ResponseErrorDetails.self, from: responseData) {
+                            failuer(nil,errorDetails)
+                        } else {
+                            failuer(error.localizedDescription,nil)
+                        }
                     }
                     
                 }
@@ -40,7 +45,7 @@ class WebServices {
         }.resume()
         
     }
-    func getAPICall<T: Codable>(path: String,type: T.Type,success: @escaping(_ result: T) -> Void,failuer: @escaping(_ networkError: String?,_ responseError: ResponseError?) -> Void) {
+    func getAPICall<T: Codable>(path: String,type: T.Type,success: @escaping(_ result: T) -> Void,failuer: @escaping(_ networkError: String?,_ responseError: ResponseErrorDetails?) -> Void) {
         var request = URLRequest(url: URL(string: path)!)
         request.httpMethod = "GET"
         URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -55,7 +60,11 @@ class WebServices {
                             success(json)
                         }catch {
                             print("Error Decode")
-                            failuer(nil,ResponseError(rawValue: 111))
+                            if let errorDetails = try? JSONDecoder().decode(ResponseErrorDetails.self, from: responseData) {
+                                failuer(nil,errorDetails)
+                            } else {
+                                failuer(error.localizedDescription,nil)
+                            }
                         }
                     }
                 }

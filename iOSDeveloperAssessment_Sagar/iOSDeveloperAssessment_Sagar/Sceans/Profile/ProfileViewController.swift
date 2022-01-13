@@ -31,10 +31,11 @@ class ProfileViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        prepareView()
+        prepareUI()
+        setupBindings()
     }
         
-    func prepareView() {
+    func prepareUI() {
         iconBlog.isHidden = true
         iconEmail.isHidden = true
         view.startSkeletonAnimation()
@@ -45,6 +46,11 @@ class ProfileViewController: BaseViewController {
             GCD.onMain(deadline: .now() + 1.0) {
                 self.bindAllDetails(userDetails: user)
             }
+        }
+    }
+    private func setupBindings() {
+        viewModel.apiErrorMessage = { (networkError,responseError)  in
+            self.showAPIError(message: networkError, responseError: responseError)
         }
     }
     func bindAllDetails(userDetails: UserDetails) {
@@ -66,6 +72,8 @@ class ProfileViewController: BaseViewController {
             iconEmail.isHidden = false
         }
         hideSkeletons()
+        
+        
     }
     func loadin() {
         [userProfileImageView,labelUserName,labelFullName,labelLocation,labelFollowers,

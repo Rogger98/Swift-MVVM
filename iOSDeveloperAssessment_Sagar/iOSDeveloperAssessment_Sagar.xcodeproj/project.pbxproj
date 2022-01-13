@@ -34,6 +34,9 @@
 		6E9C6D1127904DD500B0A7F0 /* UIStoryboard+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C6D1027904DD500B0A7F0 /* UIStoryboard+Extentions.swift */; };
 		6E9C6D162790541800B0A7F0 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C6D152790541800B0A7F0 /* FollowersViewController.swift */; };
 		6E9C6D1B279057D200B0A7F0 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 6E9C6D1A279057D200B0A7F0 /* SkeletonView */; };
+		6E9CFD5E2790966C009F28F6 /* UIScrollView_InfiniteScroll in Frameworks */ = {isa = PBXBuildFile; productRef = 6E9CFD5D2790966C009F28F6 /* UIScrollView_InfiniteScroll */; };
+		6E9CFD6127909AED009F28F6 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CFD6027909AED009F28F6 /* AlertType.swift */; };
+		6E9CFD6427909C6D009F28F6 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9CFD6327909C6D009F28F6 /* BaseViewModel.swift */; };
 		6EF3B1A327906C2F000BC3D9 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EF3B1A227906C2F000BC3D9 /* Profile.storyboard */; };
 		6EF3B1A627906C4B000BC3D9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3B1A527906C4B000BC3D9 /* ProfileViewController.swift */; };
 		6EF3B1A927906DF4000BC3D9 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3B1A827906DF4000BC3D9 /* ProfileViewModel.swift */; };
@@ -72,6 +75,8 @@
 		6E9C6D0D2790444600B0A7F0 /* SearchViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewNavigator.swift; sourceTree = "<group>"; };
 		6E9C6D1027904DD500B0A7F0 /* UIStoryboard+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extentions.swift"; sourceTree = "<group>"; };
 		6E9C6D152790541800B0A7F0 /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
+		6E9CFD6027909AED009F28F6 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
+		6E9CFD6327909C6D009F28F6 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		6EF3B1A227906C2F000BC3D9 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		6EF3B1A527906C4B000BC3D9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6EF3B1A827906DF4000BC3D9 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -87,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E9C6D1B279057D200B0A7F0 /* SkeletonView in Frameworks */,
+				6E9CFD5E2790966C009F28F6 /* UIScrollView_InfiniteScroll in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +206,8 @@
 			children = (
 				6E9C6CE02790185C00B0A7F0 /* Generic Codables */,
 				6E9C6CEF27902EDE00B0A7F0 /* GCD.swift */,
+				6E9CFD6027909AED009F28F6 /* AlertType.swift */,
+				6E9CFD6327909C6D009F28F6 /* BaseViewModel.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -304,6 +312,7 @@
 			name = iOSDeveloperAssessment_Sagar;
 			packageProductDependencies = (
 				6E9C6D1A279057D200B0A7F0 /* SkeletonView */,
+				6E9CFD5D2790966C009F28F6 /* UIScrollView_InfiniteScroll */,
 			);
 			productName = iOSDeveloperAssessment_Sagar;
 			productReference = 6E9C6C982790075900B0A7F0 /* iOSDeveloperAssessment_Sagar.app */;
@@ -334,6 +343,7 @@
 			mainGroup = 6E9C6C8F2790075800B0A7F0;
 			packageReferences = (
 				6E9C6D19279057D200B0A7F0 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				6E9CFD5C2790966C009F28F6 /* XCRemoteSwiftPackageReference "UIScrollView-InfiniteScroll" */,
 			);
 			productRefGroup = 6E9C6C992790075900B0A7F0 /* Products */;
 			projectDirPath = "";
@@ -385,8 +395,10 @@
 				6E9C6D0E2790444600B0A7F0 /* SearchViewNavigator.swift in Sources */,
 				6E9C6D0B279041E200B0A7F0 /* FollowDetailsViewModel.swift in Sources */,
 				6EF3B1A927906DF4000BC3D9 /* ProfileViewModel.swift in Sources */,
+				6E9CFD6127909AED009F28F6 /* AlertType.swift in Sources */,
 				6E9C6CC027900A3300B0A7F0 /* APIRouter.swift in Sources */,
 				6E9C6CFC279035B000B0A7F0 /* UIImageView+Extentions.swift in Sources */,
+				6E9CFD6427909C6D009F28F6 /* BaseViewModel.swift in Sources */,
 				6E9C6CB4279009CB00B0A7F0 /* AssessmentDelegate.swift in Sources */,
 				6E9C6C9E2790075900B0A7F0 /* SceneDelegate.swift in Sources */,
 				6E9C6CE32790185C00B0A7F0 /* GenericCodable.swift in Sources */,
@@ -601,6 +613,14 @@
 				version = 1.29.0;
 			};
 		};
+		6E9CFD5C2790966C009F28F6 /* XCRemoteSwiftPackageReference "UIScrollView-InfiniteScroll" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pronebird/UIScrollView-InfiniteScroll.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -608,6 +628,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6E9C6D19279057D200B0A7F0 /* XCRemoteSwiftPackageReference "SkeletonView" */;
 			productName = SkeletonView;
+		};
+		6E9CFD5D2790966C009F28F6 /* UIScrollView_InfiniteScroll */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6E9CFD5C2790966C009F28F6 /* XCRemoteSwiftPackageReference "UIScrollView-InfiniteScroll" */;
+			productName = UIScrollView_InfiniteScroll;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

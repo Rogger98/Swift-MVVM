@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FollowingViewController: UIViewController {
+class FollowingViewController: BaseViewController {
 
     // MARK: - Outlets
     @IBOutlet private var tableView: UITableView!
@@ -34,6 +34,9 @@ class FollowingViewController: UIViewController {
             GCD.onMain {
                 self.tableView.reloadData()
             }
+        }
+        viewModel.apiErrorMessage = { (networkError,responseError)  in
+            self.showAPIError(message: networkError, responseError: responseError)
         }
     }
 

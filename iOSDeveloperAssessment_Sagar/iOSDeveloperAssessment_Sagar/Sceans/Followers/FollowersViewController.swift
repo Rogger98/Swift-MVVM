@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FollowersViewController: UIViewController {
+class FollowersViewController: BaseViewController {
 
     // MARK: - Outlets
     @IBOutlet private var tableView: UITableView!
@@ -34,7 +34,11 @@ class FollowersViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+        viewModel.apiErrorMessage = { (networkError,responseError)  in
+            self.showAPIError(message: networkError, responseError: responseError)
+        }
     }
+    
 
 }
 extension FollowersViewController: UITableViewDataSource {

@@ -24,7 +24,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="LlY-IC-0Nc"/>
                                 </connections>
                             </tableView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RC-Xi-fZ0">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RC-Xi-fZ0">
                                 <rect key="frame" x="107" y="385" width="200" height="240.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="githLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5Go-T9-0IM">
@@ -34,7 +34,7 @@
                                             <constraint firstAttribute="width" constant="200" id="9vt-eE-mPk"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNC-O1-VyK">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not found" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNC-O1-VyK">
                                         <rect key="frame" x="0.0" y="220" width="200" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -63,6 +63,9 @@
                                         </constraints>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="magnifyingglass" catalog="system"/>
+                                        <connections>
+                                            <action selector="didTapOnSearch" destination="BYZ-38-t0r" eventType="touchUpInside" id="ceX-EW-9AT"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVB-CO-hm2">
                                         <rect key="frame" x="10" y="0.0" width="354" height="40"/>

@@ -41,3 +41,13 @@ enum ResponseError  : Int{
         }
     }
 }
+
+struct ResponseErrorDetails: Codable {
+    let documentationURL: Generic?
+    let message: Generic?
+
+    enum CodingKeys: String, CodingKey {
+        case documentationURL = "documentation_url"
+        case message
+    }
+}
