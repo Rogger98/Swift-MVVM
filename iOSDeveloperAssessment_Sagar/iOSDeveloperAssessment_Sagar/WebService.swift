@@ -22,6 +22,9 @@ class WebServices {
                 if let responseData = data {
                     if statusCode.statusCode == 200 {
                         do {
+                            if let responseda = JSONSerialization.jsonObject(with: responseData, options: .allowFragments) {
+                                print("Response \(responseda)")
+                            }
                             let json = try JSONDecoder().decode(type.self, from: responseData)
                             success(json)
                         }catch {
@@ -37,4 +40,5 @@ class WebServices {
         }.resume()
         
     }
+    
 }

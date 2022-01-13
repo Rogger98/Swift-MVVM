@@ -7,64 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A5E08AD0-A679-4B73-84E2-38AE06E34CC7"
+            uuid = "57A773BD-C15F-4F02-95B9-9CCDD3EE586F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iOSDeveloperAssessment_Sagar/Sceans/SearchViewController.swift"
+            filePath = "iOSDeveloperAssessment_Sagar/Extentions/UIKit/UIImageView+Extentions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "setupBindings()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A5E08AD0-A679-4B73-84E2-38AE06E34CC7 - c05d75c6f568a070"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iOSDeveloperAssessment_Sagar.SearchViewController.(setupBindings in _F7B9D1891136A28D81E08E654D889579)() -&gt; ()"
-                  moduleName = "iOSDeveloperAssessment_Sagar"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/psagc/iOS-Developer-Assessment---Sagar-Prajapati/iOSDeveloperAssessment_Sagar/iOSDeveloperAssessment_Sagar/Sceans/SearchViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "22">
-               </Location>
-               <Location
-                  uuid = "A5E08AD0-A679-4B73-84E2-38AE06E34CC7 - 93a89a48162f6825"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in iOSDeveloperAssessment_Sagar.SearchViewController.(setupBindings in _F7B9D1891136A28D81E08E654D889579)() -&gt; ()"
-                  moduleName = "iOSDeveloperAssessment_Sagar"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/psagc/iOS-Developer-Assessment---Sagar-Prajapati/iOSDeveloperAssessment_Sagar/iOSDeveloperAssessment_Sagar/Sceans/SearchViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "8">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C873FD27-B81D-4FC0-86B5-F64D15C0D7B0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iOSDeveloperAssessment_Sagar/WebService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "makeRequest(route:type:success:failuer:)"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "loadImageFrom(url:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
