@@ -51,6 +51,7 @@ class SearchViewController: BaseViewController {
             }
         }
         tableSearchResult.addInfiniteScroll { (table) in
+            table.finishInfiniteScroll()
             if !self.viewModel.isInCompleteResult && self.viewModel.arraySearchUsers.count != self.viewModel.totalPage{
                 self.viewModel.page += 1
                 self.viewModel.searchForUser(self.textFieldSearch.text ?? "")
