@@ -11,6 +11,8 @@ let imageCache = NSCache<NSString, AnyObject>()
 
 
 extension UIImageView {
+    
+    /// load images by url if it's loaded than will load from cache 
     func loadImageFrom(url : String) {
         guard let imageUrl = URL(string: url) else { return  }
         if let imageFromCache = imageCache.object(forKey: url as NSString) as? UIImage {

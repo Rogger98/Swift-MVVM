@@ -84,7 +84,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GwJ-YD-7Dd" customClass="SPTextField" customModule="iOSDeveloperAssessment_Sagar" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="354" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="username"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="paddingLeftCustom">
                                                                 <real key="value" value="10"/>
@@ -139,10 +139,23 @@
                         <outlet property="labelEmpty" destination="vNC-O1-VyK" id="us3-qs-tUa"/>
                         <outlet property="tableSearchResult" destination="Gr5-GT-6kS" id="QVj-rr-U3U"/>
                         <outlet property="textFieldSearch" destination="GwJ-YD-7Dd" id="eqC-ot-og3"/>
+                        <outlet property="toolBar" destination="12H-JE-5XI" id="SeP-uY-42B"/>
                         <outlet property="viewNotFound" destination="9RC-Xi-fZ0" id="VEB-PJ-Lwd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="12H-JE-5XI">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem width="352" style="plain" systemItem="fixedSpace" id="1XS-s8-hfU"/>
+                        <barButtonItem style="done" systemItem="done" id="UJg-Xz-hS6">
+                            <connections>
+                                <action selector="didTapOnDone" destination="BYZ-38-t0r" id="JZC-Pb-hAj"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
             </objects>
             <point key="canvasLocation" x="763.768115942029" y="69.642857142857139"/>
         </scene>

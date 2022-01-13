@@ -35,11 +35,13 @@ class BaseViewController: UIViewController {
     }
     
     func showAPIError(message: String?,responseError: ResponseErrorDetails?) {
-        if let msg = message , !msg.isEmpty {
-            self.showAlertMessage(message: msg, theam: .error, actions: [])
-        } else if let msg = responseError?.message?.stringValue {
-            self.showAlertMessage(message: msg, theam: .error, actions: [])
+        GCD.onMain {
+            if let msg = message , !msg.isEmpty {
+                self.showAlertMessage(message: msg, theam: .error, actions: [])
+            } else if let msg = responseError?.message?.stringValue {
+                self.showAlertMessage(message: msg, theam: .error, actions: [])
+            }
+            
         }
-        
     }
 }

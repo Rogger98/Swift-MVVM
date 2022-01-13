@@ -39,7 +39,7 @@ class ProfileViewController: BaseViewController {
         iconBlog.isHidden = true
         iconEmail.isHidden = true
         view.startSkeletonAnimation()
-        loadin()
+        loading()
         guard let userDetails = user?.login?.stringValue else { return  }
         title = userDetails
         viewModel.getUserDetails(user: userDetails) { (user) in
@@ -53,6 +53,7 @@ class ProfileViewController: BaseViewController {
             self.showAPIError(message: networkError, responseError: responseError)
         }
     }
+    
     func bindAllDetails(userDetails: UserDetails) {
         labelUserName.text = userDetails.name?.stringValue
         labelLocation.text = userDetails.location?.stringValue
@@ -73,16 +74,14 @@ class ProfileViewController: BaseViewController {
         }
         hideSkeletons()
         
-        
     }
-    func loadin() {
+    func loading() {
         [userProfileImageView,labelUserName,labelFullName,labelLocation,labelFollowers,
          labelFolloweing,labelBio,labelEmail,labelBlog].forEach { (sView) in
             sView?.showGradientSkeleton()
          }
     }
     func hideSkeletons() {
-        
         [userProfileImageView,labelUserName,labelFullName,labelLocation,labelFollowers,
          labelFolloweing,labelBio,labelEmail,labelBlog].forEach { (sView) in
             sView?.hideSkeleton()

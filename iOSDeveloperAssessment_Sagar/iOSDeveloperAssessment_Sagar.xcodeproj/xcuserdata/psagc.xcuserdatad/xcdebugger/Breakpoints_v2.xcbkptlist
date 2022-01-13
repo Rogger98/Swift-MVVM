@@ -110,8 +110,8 @@
             filePath = "iOSDeveloperAssessment_Sagar/Sceans/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "setupBindings()"
             landmarkType = "7">
          </BreakpointContent>
@@ -129,6 +129,54 @@
             startingLineNumber = "20"
             endingLineNumber = "20"
             landmarkName = "getUserDetails(user:complition:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D74275C7-C61F-4C23-9D24-81A8A6A28CCC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOSDeveloperAssessment_Sagar/Tools/UIKit/BaseViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "showAPIError(message:responseError:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C72C611B-0977-4B09-B79A-58EB41CA79F9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOSDeveloperAssessment_Sagar/WebService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "getAPICall(path:type:success:failuer:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "52F19144-D687-4825-A17F-EE9E25D19EAC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Library/Developer/Xcode/DerivedData/iOSDeveloperAssessment_Sagar-cfbwoikmosverkeyolqzmlehzhmd/SourcePackages/checkouts/UIScrollView-InfiniteScroll/Classes/UIScrollView+InfiniteScroll.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "738"
+            endingLineNumber = "738"
+            landmarkName = "-pb_scrollToInfiniteIndicatorIfNeeded:force:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

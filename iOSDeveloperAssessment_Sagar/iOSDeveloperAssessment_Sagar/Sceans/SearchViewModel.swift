@@ -16,7 +16,7 @@ class SearchViewModel : BaseViewModel{
     var searchResultUpdated : (() -> ())?
     var arraySearchUsers: [Item] = [Item]()
     
-    
+    /// search git user
     func searchForUser(_ user: String) {
         getSearchResult(search: user, page: page)
     }
@@ -24,7 +24,6 @@ class SearchViewModel : BaseViewModel{
     private func getSearchResult(search: String,page: Int) {
         WebServices.shared.cancellAllRequest()
         WebServices.shared.makeRequest(route: .searchUser(userName: search, page: page), type: SearchResult.self) { (data) in
-//            dump(data)
             self.totalPage = data.totalCount?.intValue ?? 0
             self.isInCompleteResult = data.incompleteResults?.boolValue ?? false
             if page == 1 {

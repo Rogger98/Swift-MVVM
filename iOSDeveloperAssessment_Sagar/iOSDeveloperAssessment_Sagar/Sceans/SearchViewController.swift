@@ -16,6 +16,8 @@ class SearchViewController: BaseViewController {
     @IBOutlet private weak var viewNotFound: UIView!
     @IBOutlet private weak var labelEmpty: UILabel!
     @IBOutlet private weak var textFieldSearch: UITextField!
+    @IBOutlet private weak var toolBar: UIToolbar!
+    
     // MARK: - Variables
     var viewModel: SearchViewModel = SearchViewModel()
     var navigator: SearchViewNavigator?
@@ -59,6 +61,9 @@ class SearchViewController: BaseViewController {
         }
     }
     private func prepareUI() {
+        textFieldSearch.clearButtonMode = .whileEditing
+        tableSearchResult.keyboardDismissMode = .onDrag
+        textFieldSearch.inputAccessoryView = toolBar
         self.reloadEmptyView()
         let refreshController = UIRefreshControl()
         refreshController.addTarget(self, action: #selector(refreshUsers), for: .valueChanged)
@@ -100,7 +105,11 @@ extension SearchViewController {
             viewModel.searchForUser(search)
         }
     }
+    @IBAction private func didTapOnDone() {
+        view.endEditing(true)
+    }
 }
+// MARK: - Table View DataSource & Delegate
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return showSkeleton ? 10 : viewModel.arraySearchUsers.count
@@ -124,7 +133,6 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !showSkeleton {
             navigator?.moveTo(navigator: .moveToProfile(user: viewModel.arraySearchUsers[indexPath.row]))
-        }
-        
+        }        
     }
 }

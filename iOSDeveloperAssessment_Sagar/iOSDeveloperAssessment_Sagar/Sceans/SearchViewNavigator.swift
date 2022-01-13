@@ -8,8 +8,14 @@
 import UIKit
 
 enum SearchNavigator {
+    
+    /// move to follwing list screen
     case moveToFollowing(user: Item)
+    
+    /// move to followers list screen
     case moveToFollowers(user: Item)
+    
+    /// move to profile details screen
     case moveToProfile(user: Item)
 }
 
@@ -19,6 +25,7 @@ class SearchViewNavigator {
     init(_ viewController: SearchViewController) {
         controller = viewController
     }
+    
     func moveTo(navigator: SearchNavigator) {
         switch navigator {
         case .moveToFollowing(let user):
