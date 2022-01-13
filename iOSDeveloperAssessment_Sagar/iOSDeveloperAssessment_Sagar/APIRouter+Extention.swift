@@ -21,6 +21,7 @@ extension APIRouter {
         switch self {
         case .searchUser:
             return .get
+        
         }
     }
 }

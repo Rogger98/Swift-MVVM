@@ -22,6 +22,7 @@ class SearchViewModel {
     }
     
     private func getSearchResult(search: String,page: Int) {
+        WebServices.shared.cancellAllRequest()
         WebServices.shared.makeRequest(route: .searchUser(userName: search, page: page), type: SearchResult.self) { (data) in
 //            dump(data)
             self.totalPage = data.totalCount?.intValue ?? 0

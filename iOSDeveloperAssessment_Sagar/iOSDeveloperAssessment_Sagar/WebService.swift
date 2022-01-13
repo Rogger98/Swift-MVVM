@@ -20,9 +20,35 @@ class WebServices {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error == nil, let statusCode = response as? HTTPURLResponse {
                 if let responseData = data {
+                    
+                    do {
+                        if let responseda = try? JSONSerialization.jsonObject(with: responseData, options: .allowFragments) {
+                            print("Response \(responseda)")
+                        }
+                        let json = try JSONDecoder().decode(type.self, from: responseData)
+                        success(json)
+                    }catch {
+                        print("Error Decode")
+                        failuer(nil,ResponseError(rawValue: 111))
+                    }
+                    
+                }
+            } else {
+                let message = error.debugDescription
+                failuer(message,nil)
+            }
+        }.resume()
+        
+    }
+    func getAPICall<T: Codable>(path: String,type: T.Type,success: @escaping(_ result: T) -> Void,failuer: @escaping(_ networkError: String?,_ responseError: ResponseError?) -> Void) {
+        var request = URLRequest(url: URL(string: path)!)
+        request.httpMethod = "GET"
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error == nil, let statusCode = response as? HTTPURLResponse {
+                if let responseData = data {
                     if statusCode.statusCode == 200 {
                         do {
-                            if let responseda = JSONSerialization.jsonObject(with: responseData, options: .allowFragments) {
+                            if let responseda = try? JSONSerialization.jsonObject(with: responseData, options: .allowFragments) {
                                 print("Response \(responseda)")
                             }
                             let json = try JSONDecoder().decode(type.self, from: responseData)
@@ -40,5 +66,11 @@ class WebServices {
         }.resume()
         
     }
-    
+    func cancellAllRequest() {
+        URLSession.shared.getAllTasks { (tasks) in
+            for task in tasks {
+                task.cancel()
+            }
+        }
+    }
 }
